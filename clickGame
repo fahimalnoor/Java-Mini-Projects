@@ -1,0 +1,195 @@
+import java.lang.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.*;
+
+public class Click extends JFrame implements ActionListener,Runnable{
+	
+	private JPanel panel;
+	private JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,butex;
+	private JLabel scoreLabel;
+	
+	Random r;
+	int x,y,z,a;
+	static int res = 0;
+	
+	public Click(){
+		
+		super("Click Counter");
+		
+		r = new Random();
+		x = 255;
+		y = 0;
+		z = 0;
+		
+		
+		this.setSize(400 , 500);  
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		
+		
+		panel = new JPanel();
+		panel.setLayout(null); 
+		
+		Color backColor = new Color(255,232,207);
+		panel.setBackground(backColor);
+		
+		Color butCol = new Color(x,y,z);
+		
+		
+		scoreLabel = new JLabel("Score: "+res);
+		scoreLabel.setBounds(150,50,150,30);
+		scoreLabel.setOpaque(false);
+		scoreLabel.setEnabled(false);
+		panel.add(scoreLabel);
+	
+
+	
+	
+        b1 = new JButton("Button 1");
+		b1.setBounds(80,100,90,30);
+		b1.setBackground(butCol);
+		b1.addActionListener(this);
+		panel.add(b1);
+		
+	
+        b2 = new JButton("Button 2");
+		b2.setBounds(80,150,90,30);
+		b2.setBackground(butCol);
+		b2.addActionListener(this);
+		panel.add(b2);
+		
+        b3 = new JButton("Button 3");
+		b3.setBounds(80,200,90,30);
+		b3.setBackground(butCol);
+		b3.addActionListener(this);
+		panel.add(b3);
+			
+        b4 = new JButton("Button 4");
+		b4.setBounds(80,250,90,30);
+		b4.setBackground(butCol);
+		b4.addActionListener(this);
+		panel.add(b4);
+		
+        b5 = new JButton("Button 5");
+		b5.setBounds(80,300,90,30);
+		b5.setBackground(butCol);
+		b5.addActionListener(this);
+		panel.add(b5);
+		
+		
+        b6 = new JButton("Button 6");
+		b6.setBounds(200,100,90,30);
+		b6.setBackground(butCol);
+		b6.addActionListener(this);
+		panel.add(b6);
+		
+        b7 = new JButton("Button 7");
+		b7.setBounds(200,150,90,30);
+		b7.setBackground(butCol);
+		b7.addActionListener(this);
+		panel.add(b7);
+		
+		
+        b8 = new JButton("Button 8");
+		b8.setBounds(200,200,90,30);
+		b8.setBackground(butCol);
+		b8.addActionListener(this);
+		panel.add(b8);
+		
+        b9 = new JButton("Button 9");
+		b9.setBounds(200,250,90,30);
+		b9.setBackground(butCol);
+		b9.addActionListener(this);
+		panel.add(b9);
+		
+		b10 = new JButton("Button 10");
+		b10.setBounds(200,300,90,30);
+		b10.setBackground(butCol);
+		b10.addActionListener(this);
+		panel.add(b10);
+		
+		Color exColor = new Color(189,240,242);
+		butex = new JButton("Exit");
+		butex.setBounds(150,350,90,30);
+		butex.setBackground(exColor);
+		butex.addActionListener(this);
+		panel.add(butex);
+		
+		this.add(panel);
+		this.setVisible(true);
+		
+	}
+	public void run()
+	{
+		
+		for(int i=1; i<100; i++)
+		{
+			try
+			{
+			
+				int a = r.nextInt(11);
+		
+				Color mColor = new Color(0,250,0);
+				
+				if(a == 1){
+				b1.setBackground(mColor);
+				}
+				if(a == 2){
+				b2.setBackground(mColor);
+				}
+				if(a == 3){
+				b3.setBackground(mColor);
+				}
+				if(a == 4){
+				b4.setBackground(mColor);
+				}
+				if(a == 5){
+				b5.setBackground(mColor);
+				}
+				if(a ==6){
+				b6.setBackground(mColor);
+				}
+				if(a == 7){
+				b7.setBackground(mColor);
+				}
+				if(a == 8){
+				b8.setBackground(mColor);
+				}
+				if(a == 9){
+				b9.setBackground(mColor);
+				}
+				if(a == 10){
+				b10.setBackground(mColor);
+				}
+				Thread.sleep(1000);
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
+		}
+	}
+	
+	public void actionPerformed(ActionEvent ae){
+		/*if(ae.getSource() == b1 && a == 1){
+			int sc = 1;
+			int res = sc+1;
+			scoreLabel.setText(res);
+		}*/
+		
+		if(ae.getSource() == butex){
+			System.exit(0);
+		}
+	}
+	
+	
+	
+	public static void main(String []args){
+		Click ck = new Click();
+		ck.setVisible(true);
+		ck.run();
+	}
+	
+	
+}
